@@ -1,8 +1,32 @@
-import { contextBridge } from 'electron'
-import { electronAPI } from '@electron-toolkit/preload'
+import { contextBridge, ipcRenderer } from 'electron'
+import { ElectronAPI, electronAPI } from '@electron-toolkit/preload'
+import { NewCustomer } from '../shared/types/ipc'
+
+declare global{
+  export interface Window{
+    electron: ElectronAPI
+    api: typeof api
+  }
+}
 
 // Custom APIs for renderer
-const api = {}
+const api = {
+  onNewCustumer: (callback: () => void) => {
+    ipcRenderer.on('new-customer', callback)
+
+    return () => {
+      ipcRenderer.off('new-customer', callback)
+    }
+  },
+
+  fetchUsers: () => {
+    //INVOKE -> enviar e receber algo do main
+    return ipcRenderer.invoke('fetch-users')
+  },
+
+  addCustomer: (doc:NewCustomer): Promise<void | PouchDB.Core.Response> => ipcRenderer.invoke('add-customer', doc),
+
+}
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise
