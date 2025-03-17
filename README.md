@@ -37,19 +37,6 @@ DevClients é uma aplicação desktop multiplataforma criada para fins educacion
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-### Instalação
-
-Clone o repositório e instale as dependências:
-
-```bash
-# Clone o repositório
-git clone https://github.com/seunome/devclients.git
-cd devclients
-
-# Instale as dependências
-npm install
-```
-
 ### Desenvolvimento
 
 Execute a aplicação em modo de desenvolvimento:
@@ -87,8 +74,6 @@ npm run build:linux
 DEVCLIENTS/
 ├── .vscode/               # Configurações do VS Code
 ├── build/                 # Arquivos de build compilados
-├── node_modules/          # Dependências do Node.js
-├── out/                   # Arquivos de saída da compilação
 ├── resources/             # Recursos da aplicação
 ├── src/                   # Código fonte
 │   ├── main/              # Processo principal do Electron

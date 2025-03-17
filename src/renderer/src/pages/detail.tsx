@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
-import { ArrowLeft, Trash } from "phosphor-react";
+import { ArrowLeft, Trash, GearSix } from "phosphor-react";
 import { useParams } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
 export function Detail(){
@@ -68,6 +68,14 @@ export function Detail(){
                                     disabled={isPending}
                                 >
                                     <Trash className="text-white h-6 w-6" />
+                                </button>
+                                
+                                <button 
+                                    className="bg-red-500 hover:bg-red-600 p-2 ml-4 rounded-full z-20"
+                                    onClick={()=> handleDeleteCustomer(data._id)}
+                                    disabled={isPending}
+                                >
+                                    <GearSix className="text-white h-6 w-6" />
                                 </button>
                             </div>
 

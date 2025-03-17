@@ -30,7 +30,6 @@ export function Create(){
             address: data.address,
             status: true,
         }).then((response) => {
-            console.log("Deu Certo E Cadastrou")
             navigate('/');
         })
         .catch((err) => {

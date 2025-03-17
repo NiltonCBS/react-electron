@@ -38,7 +38,9 @@ export function Home(){
                 {!isFetching && data?.length === 0 && (
                     <p className='text-gray-300'>Nenhum cliente cadastrado...</p>
                 )}
-                {data?.map((customer) => (
+                
+                {Array.isArray(data) &&
+                    data.map((customer) => (
                     <Link
                         to={`/customer/${customer._id}`}
                         key={customer._id}
